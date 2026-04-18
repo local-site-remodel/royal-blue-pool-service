@@ -1,0 +1,330 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const phone = '(214) 243-7107';
+const phoneClean = phone.replace(/[^+\d]/g, '');
+
+const title = 'Pool Remodeling Midlothian TX | Royal Blue Pools';
+const description = 'Pool remodeling in Midlothian, TX. Stonescapes replastering, Wet Edge Primera Stone, tile upgrades & glass tile remodels. Licensed TICL #1056. Free estimates.';
+
+const faqs = [
+  {
+    question: 'How long does a pool replaster take?',
+    answer: 'Most replaster jobs take 5 to 7 days from drain to fill. We drain the pool, prep the surface by chipping and bond-coating, apply the new finish, then do a controlled fill and chemical balance. Weather and pool size can shift the timeline slightly, but we keep you informed at every stage.'
+  },
+  {
+    question: 'What is the difference between Stonescapes and standard white plaster?',
+    answer: 'Standard white plaster is a smooth cement finish that typically lasts 5 to 7 years before showing stains or roughness. Stonescapes is a pebble-aggregate finish by NPP that blends natural stone with white cement for a textured, durable surface that resists staining and lasts 15 to 20 years. It also comes in multiple color blends to match your backyard design.'
+  },
+  {
+    question: 'Can I upgrade my tile during a replaster?',
+    answer: 'Absolutely. A replaster is the ideal time to replace waterline tile, add glass tile accents, or upgrade coping. Since the pool is already drained and prepped, combining these projects saves time and reduces overall cost compared to doing them separately.'
+  },
+  {
+    question: 'How much does pool remodeling cost in Midlothian?',
+    answer: 'Costs vary based on pool size, finish selection, and scope of work. A basic replaster starts around $4,000 to $6,000 for an average-sized residential pool, while premium Stonescapes or Wet Edge finishes and tile upgrades range higher. We provide free on-site estimates so you get an accurate quote with no surprises.'
+  }
+];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Royal Blue Pool Service",
+  "description": "Professional pool remodeling in Midlothian, TX. Stonescapes replastering, Wet Edge Primera Stone finishes, tile upgrades, glass tile installations, and complete pool renovations.",
+  "url": "https://royalbluepools.org/services/pool-remodeling",
+  "telephone": "(214) 243-7107",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4040 Zachs Ct",
+    "addressLocality": "Midlothian",
+    "addressRegion": "TX",
+    "postalCode": "76065",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "Midlothian", "DeSoto", "Cedar Hill", "Duncanville", "Oak Cliff",
+    "Grand Prairie", "Lancaster", "Red Oak", "Ovilla", "Waxahachie"
+  ].map(area => ({
+    "@type": "City",
+    "name": area + ", TX"
+  })),
+  "founder": { "@type": "Person", "name": "Derrick Jackson" },
+  "sameAs": [
+    "https://www.facebook.com/royalbluepoolsllc/",
+    "https://www.yelp.com/biz/royal-blue-pool-service-midlothian",
+    "https://nextdoor.com/pages/royal-blue-pool-service-duncanville-tx/"
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Pool Remodeling', href: '/services/pool-remodeling' },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://royalbluepools.org/services/pool-remodeling"
+  jsonLd={[localBusinessSchema, faqSchema]}
+>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Service Hero -->
+  <section class="section">
+    <div class="container">
+      <div class="service-hero">
+        <div class="service-hero-content">
+          <div class="section-label">Pool Remodeling</div>
+          <h1>Pool Remodeling in Midlothian, TX</h1>
+          <p>Is your pool showing its age with rough plaster, cracked tiles, or a dated look? Royal Blue Pool Service transforms tired pools into stunning backyard centerpieces with premium finishes from NPP Stonescapes and Wet Edge. Owner Derrick Jackson brings over 20 years of hands-on remodeling experience to every project, delivering results that look beautiful and hold up for decades in the Texas climate.</p>
+          <p>From a straightforward replaster to a complete renovation with glass tile accents and new coping, we handle every step in-house — no subcontractors, no surprises. Licensed (TICL #1056) and insured for your protection.</p>
+          <div style="margin-top: var(--space-lg);">
+            <a href="/contact" class="btn btn-primary">Get a Free Estimate</a>
+          </div>
+        </div>
+        <div class="service-hero-image">
+          <img src="/images/gallery/pool-remodel-glass-tile.jpg" alt="Completed pool remodel with glass tile accents in Midlothian, TX" width="600" height="450" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Features -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">What We Offer</div>
+      <h2>Our Pool Remodeling Services</h2>
+      <p class="section-subtitle">Every pool remodel is tailored to your goals, budget, and timeline. Here are the core services we provide.</p>
+      <div style="margin-top: var(--space-xl);"></div>
+      <div class="service-features">
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg>
+          </div>
+          <div>
+            <h3>Stonescapes Replastering</h3>
+            <p>NPP Stonescapes pebble finishes deliver a natural stone look with exceptional durability. Choose from colors like Tahoe Blue, Mini Pebble, and Aqua Blue to complement your landscape.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <h3>Wet Edge Primera Stone</h3>
+            <p>Wet Edge Primera Stone combines crushed marble and colored quartz for a smooth, refined finish. It resists chemical etching and holds its color through years of Texas sun exposure.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <div>
+            <h3>Tile Replacement & Upgrades</h3>
+            <p>Replace cracked or outdated waterline tile with modern ceramic, porcelain, or stone options. We handle removal, surface prep, and precision installation.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div>
+            <h3>Glass Tile Installation</h3>
+            <p>Glass tile adds a striking, luminous look to your pool. We install glass tile on waterlines, steps, benches, and spillways for eye-catching visual impact.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div>
+            <h3>Coping & Decking</h3>
+            <p>Upgrade your pool edge with new coping stone — travertine, flagstone, or bull-nose pavers — and repair or resurface surrounding decking for a finished, cohesive look.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <h3>Complete Pool Renovations</h3>
+            <p>Full-scale remodels that combine replastering, tile, coping, equipment upgrades, and lighting into one project. We coordinate every trade so the job stays on schedule.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warning Signs -->
+  <section class="section">
+    <div class="container">
+      <div class="warning-box">
+        <h3>Signs Your Pool Needs Remodeling</h3>
+        <ul class="warning-list">
+          <li>Rough or sandpaper-textured plaster that scrapes skin</li>
+          <li>Persistent stains that chemical treatment cannot remove</li>
+          <li>Cracked, loose, or missing waterline tiles</li>
+          <li>Peeling or delaminating plaster surface</li>
+          <li>Visible calcium nodules or scale buildup</li>
+          <li>Outdated colors or finishes that date your backyard</li>
+          <li>Recurring leaks around fittings or through the shell</li>
+          <li>Pool is over 10 years old and has never been resurfaced</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Remodeling Process -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2>Our Remodeling Process</h2>
+      <p class="section-subtitle">A proven four-step approach that keeps your project on time and on budget.</p>
+      <div style="margin-top: var(--space-xl);"></div>
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>Consult & Design</h3>
+          <p>We visit your property, assess the pool's condition, discuss finish options and colors, and provide a detailed written estimate — all at no cost.</p>
+        </div>
+        <div class="process-step">
+          <h3>Prep & Drain</h3>
+          <p>The pool is drained and the existing surface is chipped, cleaned, and bond-coated to ensure the new finish adheres properly and lasts.</p>
+        </div>
+        <div class="process-step">
+          <h3>Resurface & Install</h3>
+          <p>Our crew applies the chosen finish — Stonescapes, Wet Edge, or standard plaster — and installs new tile, coping, or other upgrades.</p>
+        </div>
+        <div class="process-step">
+          <h3>Fill & Balance</h3>
+          <p>We fill the pool with a controlled fill, balance the chemistry, and walk you through the 28-day startup care process for your new finish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plaster Comparison -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Compare Finishes</div>
+      <h2>Plaster Options Compared</h2>
+      <p class="section-subtitle">Not sure which finish is right for your pool? Here is a side-by-side look at the two most popular options.</p>
+      <div style="margin-top: var(--space-xl);"></div>
+      <div class="comparison-grid">
+        <div class="comparison-card">
+          <h3>Standard White Plaster</h3>
+          <ul class="comparison-list">
+            <li>Lowest upfront cost</li>
+            <li>Classic smooth, white finish</li>
+            <li>Typical lifespan of 5–7 years</li>
+            <li>Prone to staining and etching over time</li>
+            <li>Limited color options</li>
+            <li>Requires more frequent acid washes</li>
+          </ul>
+        </div>
+        <div class="comparison-card highlight">
+          <h3>Stonescapes / Pebble Finish</h3>
+          <ul class="comparison-list">
+            <li>Lasts 15–20 years with proper care</li>
+            <li>Natural stone texture hides imperfections</li>
+            <li>Superior stain and chemical resistance</li>
+            <li>Wide range of color blends available</li>
+            <li>Better long-term value per year of service</li>
+            <li>Non-slip texture for improved safety</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">Our Work</div>
+      <h2>Recent Remodeling Projects</h2>
+      <p class="section-subtitle">Real results from pool remodels we have completed in Midlothian and the surrounding area.</p>
+      <div style="margin-top: var(--space-xl);"></div>
+      <div class="gallery-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="gallery-item">
+          <img src="/images/gallery/replaster-tahoe-blue-before-after.jpg" alt="Stonescapes Tahoe Blue replaster before and after" width="400" height="400" loading="lazy" />
+          <div class="gallery-caption">Stonescapes Tahoe Blue Replaster</div>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/gallery/retile-before-after.jpg" alt="Pool retile before and after in Midlothian" width="400" height="400" loading="lazy" />
+          <div class="gallery-caption">Waterline Tile Replacement</div>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/gallery/plaster-sapphire-treasure.jpg" alt="Sapphire treasure plaster finish on residential pool" width="400" height="400" loading="lazy" />
+          <div class="gallery-caption">Sapphire Treasure Finish</div>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/gallery/remodel-after.jpg" alt="Completed pool remodel in Midlothian, TX" width="400" height="400" loading="lazy" />
+          <div class="gallery-caption">Complete Pool Remodel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="section">
+    <div class="container">
+      <div class="testimonials-grid" style="grid-template-columns: 1fr;">
+        <div class="testimonial-card featured" style="grid-row: span 1; text-align: center; max-width: 700px; margin: 0 auto;">
+          <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-quote">"We had pool issues after purchasing our home and Royal Blue did an excellent replaster job using Stonescapes. The pool looks brand new."</p>
+          <p class="testimonial-author">Lindsey B.</p>
+          <p class="testimonial-source">Yelp Review</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">Common Questions</div>
+      <h2 style="text-align: center; margin-bottom: var(--space-xl);">Pool Remodeling FAQ</h2>
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <div class="faq-answer">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Transform Your Pool?</h2>
+      <p>Get a free on-site estimate for your pool remodel. Over 20 years of experience, licensed, insured, and committed to quality craftsmanship.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+        <a href={`tel:${phoneClean}`} class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

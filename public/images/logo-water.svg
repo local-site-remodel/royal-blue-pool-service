@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" width="42" height="42">
+  <defs>
+    <linearGradient id="pool" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="40%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+  </defs>
+  <rect width="42" height="42" rx="8" fill="url(#pool)"/>
+  <!-- Caustic light patterns like sunlight on pool water -->
+  <path d="M5 12Q10 8 15 13Q20 18 25 11Q30 5 37 10" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
+  <path d="M3 20Q9 15 16 21Q22 26 28 19Q34 13 40 18" stroke="rgba(255,255,255,0.2)" stroke-width="1.2" fill="none"/>
+  <path d="M4 28Q11 23 17 29Q23 34 30 27Q35 22 39 26" stroke="rgba(255,255,255,0.18)" stroke-width="1" fill="none"/>
+  <path d="M6 35Q12 30 18 36Q24 40 31 34Q36 29 40 33" stroke="rgba(255,255,255,0.12)" stroke-width="1" fill="none"/>
+  <!-- Bright caustic spots -->
+  <ellipse cx="12" cy="14" rx="4" ry="3" fill="rgba(255,255,255,0.14)" transform="rotate(-20 12 14)"/>
+  <ellipse cx="28" cy="22" rx="5" ry="3" fill="rgba(255,255,255,0.1)" transform="rotate(15 28 22)"/>
+  <ellipse cx="18" cy="30" rx="3" ry="2" fill="rgba(255,255,255,0.08)" transform="rotate(-10 18 30)"/>
+  <ellipse cx="8" cy="24" rx="3" ry="2.5" fill="rgba(255,255,255,0.09)" transform="rotate(25 8 24)"/>
+  <ellipse cx="33" cy="12" rx="3.5" ry="2" fill="rgba(255,255,255,0.12)" transform="rotate(-15 33 12)"/>
+  <!-- Surface shimmer -->
+  <path d="M0 5Q7 2 14 6Q21 10 28 5Q35 1 42 4" stroke="rgba(255,255,255,0.35)" stroke-width="0.8" fill="none"/>
+</svg>

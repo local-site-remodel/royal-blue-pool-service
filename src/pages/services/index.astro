@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const phone = '(214) 243-7107';
+const phoneClean = phone.replace(/[^+\d]/g, '');
+
+const services = [
+  {
+    name: 'Weekly Pool Maintenance',
+    description: 'Consistent weekly cleaning, chemical balancing, and equipment checks to keep your pool sparkling all season long.',
+    href: '/services/weekly-pool-maintenance',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>'
+  },
+  {
+    name: 'Pool Equipment Repair',
+    description: 'Certified Pentair and Polaris warranty service for pumps, filters, heaters, cleaners, and all pool equipment.',
+    href: '/services/pool-equipment-repair',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>'
+  },
+  {
+    name: 'Green Pool Recovery',
+    description: 'Algae-infested pool? We restore green pools to crystal-clear condition with professional shock treatment and filtration.',
+    href: '/services/green-pool-recovery',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 14.69c1.32 0 2.4-1.1 2.4-2.43 0-.7-.34-1.36-1.02-1.92-.68-.56-1.22-1.29-1.38-2.04-.16.75-.7 1.48-1.38 2.04-.68.56-1.02 1.22-1.02 1.92 0 1.33 1.08 2.43 2.4 2.43z"/><path d="M17 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S17.29 6.75 17 5.3c-.29 1.45-1.14 2.84-2.29 3.76S13 11.1 13 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>'
+  },
+  {
+    name: 'Pool Remodeling',
+    description: 'Transform your pool with Stonescapes replastering, tile upgrades, and complete pool renovations that last for decades.',
+    href: '/services/pool-remodeling',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
+  },
+  {
+    name: 'Filter Cleaning',
+    description: 'Regular filter cleaning and replacement to maintain optimal water flow, clarity, and pool system performance.',
+    href: '/services/filter-cleaning',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>'
+  },
+  {
+    name: 'Pool Education',
+    description: 'Free 30-minute on-site sessions for new pool owners. Learn equipment operation and water chemistry basics.',
+    href: '/services/pool-education',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>'
+  },
+];
+
+const title = 'Pool Services in Midlothian, TX | Royal Blue Pools';
+const description = 'Professional pool services in Midlothian, TX. Weekly maintenance, equipment repair, green pool recovery, remodeling, filter cleaning & free pool education.';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Royal Blue Pool Service",
+  "description": "Family-owned pool service company in Midlothian, TX offering weekly maintenance, equipment repair, green pool recovery, remodeling, and free pool education. Licensed (TICL #1056), insured, and serving Ellis County and southern Dallas County for over 20 years.",
+  "url": "https://royalbluepools.org",
+  "telephone": "(214) 243-7107",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4040 Zachs Ct",
+    "addressLocality": "Midlothian",
+    "addressRegion": "TX",
+    "postalCode": "76065",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "Midlothian", "DeSoto", "Cedar Hill", "Duncanville", "Oak Cliff",
+    "Grand Prairie", "Lancaster", "Red Oak", "Ovilla", "Pecan Hill",
+    "Oak Leaf", "Waxahachie", "Ferris", "Ennis"
+  ].map(area => ({
+    "@type": "City",
+    "name": area + ", TX"
+  })),
+  "founder": { "@type": "Person", "name": "Derrick Jackson" },
+  "sameAs": [
+    "https://www.facebook.com/royalbluepoolsllc/",
+    "https://www.yelp.com/biz/royal-blue-pool-service-midlothian",
+    "https://nextdoor.com/pages/royal-blue-pool-service-duncanville-tx/"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Pool Services",
+    "itemListElement": services.map(s => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": s.name,
+        "description": s.description
+      }
+    }))
+  }
+};
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://royalbluepools.org/services"
+  jsonLd={[localBusinessSchema]}
+>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Services Hub -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Our Services</div>
+      <h1>Pool Services in Midlothian & Ellis County</h1>
+      <p class="section-subtitle">Royal Blue Pool Service offers complete pool care for residential pools throughout Midlothian and the surrounding Ellis County area. From routine weekly maintenance to full-scale remodels, owner Derrick Jackson and his team bring over 20 years of hands-on experience, Pentair and Polaris warranty certifications, and a commitment to honest, reliable service.</p>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="service-hero-image" style="margin-bottom: var(--space-lg); max-height: 350px; border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="/images/gallery/tahoe-blue-stonescapes-after.jpg" alt="Crystal clear pool maintained by Royal Blue Pool Service in Midlothian, TX" width="1200" height="400" loading="eager" decoding="async" style="width: 100%; height: 100%; object-fit: cover;" />
+      </div>
+      <div class="services-grid">
+        {services.map(service => (
+          <a href={service.href} class="service-card" style="text-decoration: none; color: inherit;">
+            <div class="service-card-icon" set:html={service.icon}></div>
+            <h3>{service.name}</h3>
+            <p>{service.description}</p>
+            <span class="service-card-link">Learn More &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready for a Crystal-Clear Pool?</h2>
+      <p>Get a free estimate from Midlothian's trusted pool service. Over 20 years of experience, licensed, insured, and ready to help.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+        <a href={`tel:${phoneClean}`} class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

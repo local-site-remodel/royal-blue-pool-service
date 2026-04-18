@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const phone = '(214) 243-7107';
+const phoneClean = phone.replace(/[^+\d]/g, '');
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+];
+
+const serviceAreas = [
+  'Midlothian', 'DeSoto', 'Cedar Hill', 'Duncanville', 'Oak Cliff',
+  'Grand Prairie', 'Lancaster', 'Red Oak', 'Ovilla', 'Pecan Hill',
+  'Oak Leaf', 'Waxahachie', 'Ferris', 'Ennis'
+];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Royal Blue Pool Service",
+  "description": "Family-owned pool service company in Midlothian, TX. Licensed (TICL #1056), insured, and serving Ellis County and southern Dallas County for over 20 years.",
+  "url": "https://royalbluepools.org/about",
+  "telephone": "(214) 243-7107",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4040 Zachs Ct",
+    "addressLocality": "Midlothian",
+    "addressRegion": "TX",
+    "postalCode": "76065",
+    "addressCountry": "US"
+  },
+  "founder": { "@type": "Person", "name": "Derrick Jackson" },
+  "areaServed": serviceAreas.map(area => ({
+    "@type": "City",
+    "name": area + ", TX"
+  })),
+  "sameAs": [
+    "https://www.facebook.com/royalbluepoolsllc/",
+    "https://www.yelp.com/biz/royal-blue-pool-service-midlothian",
+    "https://nextdoor.com/pages/royal-blue-pool-service-duncanville-tx/"
+  ]
+};
+
+const title = "About Royal Blue Pool Service | Midlothian TX";
+const description = "Family-owned pool service in Midlothian, TX. Derrick & Nicole Jackson bring 20+ years of experience. Licensed TICL #1056, Certified Pentair & Polaris dealer.";
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://royalbluepools.org/about"
+  jsonLd={[localBusinessSchema]}
+>
+
+  <!-- Breadcrumbs -->
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Company Story -->
+  <section class="section">
+    <div class="container">
+      <h1>About Royal Blue Pool Service</h1>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="grid-2col" style="align-items: center;">
+        <div>
+          <p>Royal Blue Pool Service is a family-owned and operated pool care company based in Midlothian, Texas. Founded by Derrick and Nicole Jackson, our business was built on a simple belief: pool owners deserve honest, dependable service from people who genuinely care about the quality of their work. With over 20 years of hands-on experience in the pool industry, Derrick brings the technical expertise and attention to detail that keeps pools running safely and looking their best across Ellis County and southern Dallas County.</p>
+      <div style="margin-top: var(--space-md);"></div>
+      <p>What started as a passion for pool care has grown into a trusted local business serving 14 communities throughout the Midlothian area. As a husband-and-wife team, Derrick and Nicole treat every customer's pool like it's their own. When you call Royal Blue, you talk directly to the owner — not a dispatcher or a call center. That personal accountability is what sets us apart and why our neighbors continue to recommend us year after year.</p>
+        </div>
+        <div style="border-radius: var(--radius-lg); overflow: hidden;">
+          <img src="/images/gallery/plaster-sapphire-treasure.jpg" alt="Pool plaster work by Royal Blue Pool Service — Wet Edge Primera Stone Sapphire Treasure finish" width="600" height="450" loading="eager" decoding="async" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">What Drives Us</div>
+      <h2>Our Values</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="about-values">
+        <div class="value-card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            Honesty & Transparency
+          </h3>
+          <p>We tell you exactly what your pool needs — nothing more, nothing less. No upselling unnecessary services or recommending equipment replacements that can wait. You get straightforward assessments and fair pricing every time.</p>
+        </div>
+        <div class="value-card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Quality Workmanship
+          </h3>
+          <p>Every pool we touch reflects our reputation. From weekly chemical balancing to complete remodels, we hold ourselves to the highest standard. Our Pentair and Polaris certifications back up our commitment to doing the job right the first time.</p>
+        </div>
+        <div class="value-card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Customer Education
+          </h3>
+          <p>We believe informed pool owners make better decisions. That's why we offer free 30-minute on-site education sessions for new pool owners and take time during every service visit to explain what we're doing and why it matters.</p>
+        </div>
+        <div class="value-card">
+          <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Community Commitment
+          </h3>
+          <p>We live and work in Midlothian. Our kids swim in these pools, our neighbors are our customers, and our reputation is built one backyard at a time. We're invested in this community for the long haul.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">Credentials</div>
+      <h2>Certifications & Credentials</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="service-features">
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3>Texas TICL #1056</h3>
+            <p>Licensed by the Texas Department of Licensing and Regulation for professional pool service and repair.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div>
+            <h3>Certified Pentair Warranty Service Center</h3>
+            <p>Authorized to perform warranty repairs on Pentair pumps, filters, heaters, and pool equipment.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div>
+            <h3>Certified Polaris Warranty Dealer</h3>
+            <p>Authorized dealer and warranty service provider for Polaris automatic pool cleaners.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <div>
+            <h3>Fully Insured</h3>
+            <p>Comprehensive liability insurance protects your property and gives you peace of mind with every service visit.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+          </div>
+          <div>
+            <h3>20+ Years of Professional Experience</h3>
+            <p>Two decades of hands-on pool service, repair, and remodeling experience across Ellis County and southern Dallas County.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Service Coverage</div>
+      <h2>Areas We Serve</h2>
+      <p class="section-subtitle">Royal Blue Pool Service proudly serves 14 cities across Ellis County and southern Dallas County. Based in Midlothian, we provide prompt, reliable pool care throughout the region.</p>
+      <div class="service-areas-list">
+        {serviceAreas.map(area => (
+          <span class="area-tag">{area}, TX</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Work With a Pool Company You Can Trust?</h2>
+      <p>Get a free estimate from a family-owned team with over 20 years of experience. Licensed, insured, and committed to your pool.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+        <a href={`tel:${phoneClean}`} class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

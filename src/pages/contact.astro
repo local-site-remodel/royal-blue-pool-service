@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const phone = '(214) 243-7107';
+const phoneClean = phone.replace(/[^+\d]/g, '');
+
+const title = 'Contact Royal Blue Pool Service | Midlothian TX';
+const description = 'Contact Royal Blue Pool Service in Midlothian, TX for a free pool estimate. Call (214) 243-7107 or fill out our form. Licensed, insured — TICL #1056.';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Royal Blue Pool Service",
+  "url": "https://royalbluepools.org",
+  "telephone": "(214) 243-7107",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4040 Zachs Ct",
+    "addressLocality": "Midlothian",
+    "addressRegion": "TX",
+    "postalCode": "76065",
+    "addressCountry": "US"
+  },
+  "openingHours": "Mo-Sa 08:00-18:00",
+  "areaServed": {
+    "@type": "City",
+    "name": "Midlothian",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "TX"
+    }
+  },
+  "owner": {
+    "@type": "Person",
+    "name": "Derrick Jackson"
+  }
+};
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://royalbluepools.org/contact"
+  jsonLd={[localBusinessSchema]}
+>
+
+  <Breadcrumbs items={[
+    { label: 'Home', href: '/' },
+    { label: 'Contact', href: '/contact' }
+  ]} />
+
+  <!-- Contact Header + Form/Info -->
+  <section class="section">
+    <div class="container">
+      <h1>Contact Royal Blue Pool Service</h1>
+
+      <div class="grid-2col">
+        <!-- Left: Contact Form -->
+        <div>
+          <h2>Tell Us About Your Pool</h2>
+          <p>No obligation — just an honest estimate from a licensed pool professional.</p>
+
+          <form action="https://formsubmit.co/CLIENT_EMAIL" method="POST" class="contact-form">
+            <input type="hidden" name="_subject" value="New lead from website — Royal Blue Pool Service" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="text" name="_honey" style="display:none" />
+            <div class="form-group">
+              <label for="name">Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option value="">Select a service...</option>
+                <option value="weekly-maintenance">Weekly Maintenance</option>
+                <option value="equipment-repair">Equipment Repair</option>
+                <option value="green-pool-recovery">Green Pool Recovery</option>
+                <option value="pool-remodeling">Pool Remodeling</option>
+                <option value="filter-cleaning">Filter Cleaning</option>
+                <option value="pool-education">Pool Education</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Right: Contact Info Cards -->
+        <div>
+          <div class="contact-info-card">
+            <div class="contact-info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Phone</strong>
+              <p><a href={`tel:${phoneClean}`}>{phone}</a></p>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Location</strong>
+              <p>4040 Zachs Ct<br />Midlothian, TX 76065</p>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <div class="contact-info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <strong>Hours</strong>
+              <p>Monday &ndash; Saturday: 8:00 AM &ndash; 6:00 PM</p>
+            </div>
+          </div>
+
+          <div class="contact-info-card emergency-card">
+            <div class="contact-info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div>
+              <strong>Pool Emergency?</strong>
+              <p>Have a pool emergency? If your pump is leaking or you notice a significant water loss, turn off your pool equipment at the breaker and call us immediately.</p>
+              <a href={`tel:${phoneClean}`} class="btn btn-primary" style="margin-top: var(--space-sm);">Call Now: {phone}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container" style="text-align: center;">
+      <h2>We Typically Respond Within 24 Hours</h2>
+      <p>Whether you need a quick repair or ongoing weekly maintenance, Derrick and the Royal Blue team are here to help. Licensed (TICL #1056), insured, and serving Midlothian for over 20 years.</p>
+      <div class="cta-actions">
+        <a href={`tel:${phoneClean}`} class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

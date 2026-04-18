@@ -1,0 +1,288 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const phone = '(214) 243-7107';
+const phoneClean = phone.replace(/[^+\d]/g, '');
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Pool Equipment Repair', href: '/services/pool-equipment-repair' }
+];
+
+const equipmentCards = [
+  {
+    name: 'Pool Pumps',
+    description: 'Variable-speed, single-speed, and dual-speed pump diagnosis, repair, and replacement. Pentair warranty service available.',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>'
+  },
+  {
+    name: 'Pool Heaters & Heat Pumps',
+    description: 'Gas heater ignition repair, heat exchanger service, and heat pump troubleshooting to restore comfortable water temperatures.',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></svg>'
+  },
+  {
+    name: 'Automatic Pool Cleaners',
+    description: 'Certified Polaris warranty dealer for pressure-side cleaners, plus repair of robotic and suction-side models from all brands.',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>'
+  },
+  {
+    name: 'Salt Chlorine Generators',
+    description: 'Salt cell inspection, cleaning, and replacement. We diagnose low chlorine output, error codes, and flow sensor issues.',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M17 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S17.29 6.75 17 5.3c-.29 1.45-1.14 2.84-2.29 3.76S13 11.1 13 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>'
+  },
+  {
+    name: 'Pool Filters',
+    description: 'Cartridge, sand, and DE filter repair. We fix cracked manifolds, broken laterals, torn grids, and damaged cartridge elements.',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>'
+  },
+  {
+    name: 'Control Systems & Automation',
+    description: 'Programming, wiring repair, and troubleshooting for Pentair IntelliCenter, EasyTouch, and other pool automation systems.',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>'
+  }
+];
+
+const warningSignsList = [
+  'Unusual grinding, screeching, or humming noises from your pump or motor',
+  'Water leaking from the pump housing, unions, or plumbing connections',
+  'Noticeably weak water flow from return jets or the skimmer',
+  'Heater not warming the pool or shutting off unexpectedly',
+  'Pool cleaner moving erratically, getting stuck, or not moving at all',
+  'Filter pressure gauge reading significantly higher or lower than normal',
+  'Salt system displaying error codes or producing insufficient chlorine',
+  'Automation panel unresponsive, showing errors, or failing to control equipment'
+];
+
+const processSteps = [
+  { number: '1', title: 'Diagnose', description: 'We perform a thorough inspection of your equipment, identify the root cause of the problem, and check for any related issues that could cause future failures.' },
+  { number: '2', title: 'Quote', description: 'You receive a clear, upfront estimate before any work begins. We explain the repair options, part availability, and whether a warranty claim applies.' },
+  { number: '3', title: 'Repair', description: 'Our certified technicians complete the repair using genuine OEM parts. Pentair and Polaris warranty work is handled directly through our dealer accounts.' },
+  { number: '4', title: 'Verify', description: 'We test the repaired equipment under operating conditions, check pressure readings, flow rates, and overall system performance before leaving your property.' }
+];
+
+const faqs = [
+  {
+    question: 'How long does a typical pool equipment repair take?',
+    answer: 'Most repairs are completed in a single visit within one to two hours. If replacement parts need to be ordered, we expedite shipping through our Pentair and Polaris dealer accounts and schedule the follow-up visit as soon as parts arrive, usually within two to three business days.'
+  },
+  {
+    question: 'What does it mean that you are a Certified Pentair Warranty Service Center?',
+    answer: 'As a Certified Pentair Warranty Service Center, we are authorized to diagnose and perform warranty repairs on Pentair pumps, filters, heaters, salt systems, and automation equipment. This means your warranty claim is handled locally by our team rather than requiring you to ship equipment to a service depot.'
+  },
+  {
+    question: 'Should I repair or replace my pool pump?',
+    answer: 'It depends on the age and condition of the pump. If your single-speed pump is over eight years old, upgrading to a variable-speed pump often pays for itself in energy savings within two to three years. We will give you an honest assessment and never recommend replacement when a simple repair will solve the problem.'
+  },
+  {
+    question: 'Do you offer emergency equipment repair?',
+    answer: 'Yes. If your pump fails or a major leak develops, call us at (214) 243-7107 and we will do our best to schedule a same-day or next-day visit. Equipment failures during the Texas summer can quickly lead to algae growth, so we prioritize urgent repair calls.'
+  }
+];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Royal Blue Pool Service",
+  "description": "Certified Pentair Warranty Service Center and Polaris Warranty Dealer providing pool equipment repair in Midlothian, TX. Licensed (TICL #1056) and insured.",
+  "url": "https://royalbluepools.org/services/pool-equipment-repair",
+  "telephone": "(214) 243-7107",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4040 Zachs Ct",
+    "addressLocality": "Midlothian",
+    "addressRegion": "TX",
+    "postalCode": "76065",
+    "addressCountry": "US"
+  },
+  "founder": { "@type": "Person", "name": "Derrick Jackson" },
+  "areaServed": { "@type": "City", "name": "Midlothian, TX" }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+};
+
+const title = "Pool Equipment Repair Midlothian TX | Royal Blue";
+const description = "Certified Pentair & Polaris warranty repairs in Midlothian, TX. Pool pumps, heaters, filters, salt systems & automation. Licensed TICL #1056. Free estimates.";
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://royalbluepools.org/services/pool-equipment-repair"
+  jsonLd={[localBusinessSchema, faqSchema]}
+>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Service Hero -->
+  <section class="section">
+    <div class="container service-hero">
+      <div class="service-hero-content">
+        <h1>Pool Equipment Repair in Midlothian, TX</h1>
+        <p>When your pool equipment breaks down, you need a repair team with the certifications, parts access, and hands-on experience to fix it right the first time. Royal Blue Pool Service is a <strong>Certified Pentair Warranty Service Center</strong> and <strong>Certified Polaris Warranty Dealer</strong> — one of the few companies in the Midlothian area authorized to handle manufacturer warranty repairs on-site.</p>
+        <p>Owner Derrick Jackson brings over 20 years of pool equipment experience and holds Texas license TICL #1056. Whether your pump has failed, your heater won't ignite, or your automation system is throwing error codes, we diagnose and repair it with genuine OEM parts and factory-trained expertise.</p>
+        <div class="service-hero-actions">
+          <a href="/contact" class="btn btn-primary">Get a Free Estimate</a>
+          <a href={`tel:${phoneClean}`} class="btn btn-phone">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {phone}
+          </a>
+        </div>
+      </div>
+      <div class="service-hero-image">
+        <img src="/images/gallery/acid-wash-01.jpg" alt="Pool equipment repair service by Royal Blue Pool Service in Midlothian, TX" width="600" height="450" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment We Repair -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">What We Fix</div>
+      <h2>Equipment We Repair & Service</h2>
+      <p class="section-subtitle">From routine maintenance to complex warranty claims, we service every major component of your pool system.</p>
+      <div class="service-features">
+        {equipmentCards.map(card => (
+          <div class="service-feature-card">
+            <div class="service-feature-icon" set:html={card.icon}></div>
+            <div>
+              <h3>{card.name}</h3>
+              <p>{card.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Warning Signs -->
+  <section class="section">
+    <div class="container">
+      <div class="warning-box">
+        <h3>Signs Your Pool Equipment Needs Repair</h3>
+        <p>Catching problems early prevents costly breakdowns and keeps your pool safe to swim in. Call us if you notice any of these warning signs:</p>
+        <ul class="warning-list">
+          {warningSignsList.map(sign => (
+            <li>{sign}</li>
+          ))}
+        </ul>
+        <p>If any of these sound familiar, call <a href={`tel:${phoneClean}`}>{phone}</a> for a diagnostic visit. Most problems get worse — and more expensive — the longer you wait.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>Why Choose a Certified Repair Service</h2>
+      <p class="section-subtitle">Not all pool repair companies have the same access to parts, training, and warranty authorization. Here is how a certified dealer compares to a general service company.</p>
+      <div class="comparison-grid">
+        <div class="comparison-card highlight">
+          <h3>Certified Dealer (Royal Blue)</h3>
+          <ul class="comparison-list">
+            <li>Authorized to process Pentair & Polaris warranty claims on-site</li>
+            <li>Direct access to OEM parts through dealer accounts</li>
+            <li>Factory-trained on the latest equipment models</li>
+            <li>Texas licensed (TICL #1056) and fully insured</li>
+            <li>Over 20 years of hands-on pool equipment experience</li>
+            <li>Upfront pricing with no hidden diagnostic fees</li>
+          </ul>
+        </div>
+        <div class="comparison-card">
+          <h3>General Pool Company</h3>
+          <ul class="comparison-list">
+            <li>Cannot process manufacturer warranty claims directly</li>
+            <li>May use aftermarket or generic replacement parts</li>
+            <li>Limited training on newer equipment technologies</li>
+            <li>Licensing and insurance status may vary</li>
+            <li>Less specialized equipment diagnostic experience</li>
+            <li>Diagnostic fees and surprise charges are common</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="section">
+    <div class="container">
+      <h2>Our Repair Process</h2>
+      <p class="section-subtitle">We keep it simple, transparent, and efficient so your pool is back up and running as quickly as possible.</p>
+      <div class="process-steps">
+        {processSteps.map(step => (
+          <div class="process-step">
+            <div class="process-step-number">{step.number}</div>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>Benefits of Working with a Certified Dealer</h2>
+      <ul class="benefits-list">
+        <li><strong>Warranty repairs handled locally</strong> — no shipping your equipment to a service depot and waiting weeks for a return.</li>
+        <li><strong>Genuine OEM parts</strong> — we install the same components the manufacturer uses, which protects your warranty and extends equipment life.</li>
+        <li><strong>Faster parts availability</strong> — our dealer accounts give us priority access to inventory that general contractors cannot order directly.</li>
+        <li><strong>Accurate diagnostics</strong> — 20+ years of experience means we identify the actual problem, not just the symptoms, saving you from repeat service calls.</li>
+        <li><strong>One-stop service</strong> — whether it is a pump, heater, filter, salt system, or automation panel, we handle it all so you do not need to call multiple companies.</li>
+        <li><strong>Honest recommendations</strong> — we will never push a replacement when a repair will solve the issue. Derrick gives you the same advice he would give a family member.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="section">
+    <div class="container">
+      <div class="testimonial-card featured">
+        <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-quote">"Great experience with warranty assistance on our pump repair. Derrick walked us through our equipment replacement options and made sure we understood everything."</p>
+        <div class="testimonial-author">Taylor R.</div>
+        <div class="testimonial-source">via Yelp</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>Pool Equipment Repair FAQ</h2>
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <div class="faq-answer">{faq.answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Pool Equipment Acting Up?</h2>
+      <p>Get a free diagnostic estimate from Midlothian's certified Pentair and Polaris repair team. Over 20 years of experience, licensed, insured, and ready to get your pool running right.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+        <a href={`tel:${phoneClean}`} class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

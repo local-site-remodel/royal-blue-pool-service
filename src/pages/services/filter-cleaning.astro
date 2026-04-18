@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const phone = '(214) 243-7107';
+const phoneClean = phone.replace(/[^+\d]/g, '');
+
+const title = 'Pool Filter Cleaning Midlothian TX | Royal Blue';
+const description = 'Professional pool filter cleaning in Midlothian, TX. Cartridge, DE & sand filter service. Licensed (TICL #1056), 20+ years experience. Free estimates.';
+
+const faqs = [
+  {
+    question: 'How often should pool filters be cleaned?',
+    answer: 'Most pool filters in the Midlothian area should be cleaned every 3 to 6 months, depending on usage, surrounding vegetation, and filter type. Cartridge filters typically need cleaning more frequently than DE or sand filters. We recommend checking your filter pressure gauge weekly — when it reads 8-10 PSI above the clean starting pressure, it is time for a cleaning.'
+  },
+  {
+    question: 'What is the difference between cartridge and DE filters?',
+    answer: 'Cartridge filters use a pleated polyester element to trap particles down to 10-15 microns and are cleaned by hosing off the cartridge. DE (diatomaceous earth) filters use grids coated with DE powder to filter particles as small as 3-5 microns, providing the finest filtration available. DE filters require backwashing and recharging with fresh DE powder. Both types are common in Midlothian pools.'
+  },
+  {
+    question: 'How do I know if my pool filter needs to be replaced?',
+    answer: 'Signs that your filter element needs replacement include: the filter pressure stays high even after cleaning, visible tears or fraying in the cartridge fabric, cracked or collapsed DE grids, persistent cloudy water despite proper chemical balance, and filter elements that are more than 2-3 years old for cartridges or 5-7 years old for DE grids. We inspect every filter during service and advise on replacement timing.'
+  },
+  {
+    question: 'Can a dirty filter damage my pool pump?',
+    answer: 'Yes. A clogged or dirty filter forces your pump to work harder, increasing pressure and energy consumption. Over time this added strain can overheat the pump motor, damage seals, and significantly shorten the pump lifespan. Regular filter maintenance protects your entire pool circulation system and can save you hundreds of dollars in equipment repairs.'
+  },
+];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Royal Blue Pool Service",
+  "description": "Professional pool filter cleaning and replacement services in Midlothian, TX. Cartridge, DE, and sand filter maintenance by licensed technicians with over 20 years of experience.",
+  "url": "https://royalbluepools.org",
+  "telephone": "(214) 243-7107",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4040 Zachs Ct",
+    "addressLocality": "Midlothian",
+    "addressRegion": "TX",
+    "postalCode": "76065",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "Midlothian", "DeSoto", "Cedar Hill", "Duncanville", "Oak Cliff",
+    "Grand Prairie", "Lancaster", "Red Oak", "Ovilla", "Pecan Hill",
+    "Oak Leaf", "Waxahachie", "Ferris", "Ennis"
+  ].map(area => ({
+    "@type": "City",
+    "name": area + ", TX"
+  })),
+  "founder": { "@type": "Person", "name": "Derrick Jackson" },
+  "sameAs": [
+    "https://www.facebook.com/royalbluepoolsllc/",
+    "https://www.yelp.com/biz/royal-blue-pool-service-midlothian",
+    "https://nextdoor.com/pages/royal-blue-pool-service-duncanville-tx/"
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+};
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Filter Cleaning', href: '/services/filter-cleaning' },
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://royalbluepools.org/services/filter-cleaning"
+  jsonLd={[localBusinessSchema, faqSchema]}
+>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Service Hero -->
+  <section class="section">
+    <div class="container">
+      <div class="service-hero">
+        <div class="service-hero-content">
+          <h1>Pool Filter Cleaning in Midlothian, TX</h1>
+          <p>Your pool filter is the backbone of your water circulation system. When filters become clogged with debris, oils, and mineral deposits, water flow drops, chemical efficiency suffers, and your pump works overtime. At Royal Blue Pool Service, we provide thorough filter cleaning, inspection, and replacement for all filter types — cartridge, DE, and sand — keeping your Midlothian pool running at peak performance year-round.</p>
+          <p>Owner Derrick Jackson brings over 20 years of hands-on filtration experience to every service call. As a licensed pool professional (TICL #1056), he understands how Texas heat, pollen, and hard water put extra demand on your filtration system and tailors every service to your pool's specific needs.</p>
+          <div class="cta-actions">
+            <a href="/contact" class="btn btn-primary">Get a Free Estimate</a>
+            <a href={`tel:${phoneClean}`} class="btn btn-outline">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call {phone}
+            </a>
+          </div>
+        </div>
+        <div class="service-hero-image">
+          <img src="/images/gallery/acid-wash-before-after-03.jpg" alt="Professional pool filter cleaning service by Royal Blue Pool Service in Midlothian, TX" width="600" height="450" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Features -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>Our Filter Services</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="service-features">
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          </div>
+          <h3>Cartridge Filter Cleaning</h3>
+          <p>We remove, inspect, and deep-clean cartridge elements to restore full water flow. Chemical soaking dissolves oils, sunscreen, and mineral buildup that hosing alone cannot remove.</p>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </div>
+          <h3>DE Filter Service</h3>
+          <p>Complete disassembly, grid inspection, backwashing, and recharging with fresh diatomaceous earth for the finest filtration your pool can achieve.</p>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m2 12 5.1 2.6"/><path d="m22 12-5.1 2.6"/><path d="M12 2v4"/></svg>
+          </div>
+          <h3>Sand Filter Maintenance</h3>
+          <p>Backwash optimization, sand inspection, and media replacement when needed. We ensure your sand filter bed is free of channeling and filtering at rated capacity.</p>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+          </div>
+          <h3>Filter Replacement</h3>
+          <p>When cleaning is no longer enough, we source and install the correct replacement cartridges, DE grids, or sand media matched to your specific filter model.</p>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20V10M18 20V4"/></svg>
+          </div>
+          <h3>Pressure Testing</h3>
+          <p>We test filter pressure before and after service to verify performance gains. Baseline pressure readings help us track filter health over time and predict replacement needs.</p>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Multi-Port Valve Service</h3>
+          <p>Inspection, lubrication, and repair of multi-port valves on sand and DE filters. We replace worn spider gaskets and ensure all valve positions function correctly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warning Signs -->
+  <section class="section">
+    <div class="container">
+      <div class="warning-box">
+        <h3>Signs Your Pool Filter Needs Attention</h3>
+        <ul class="warning-list">
+          <li>Filter pressure gauge reads 8-10 PSI above the normal clean baseline</li>
+          <li>Pool water appears cloudy or hazy despite balanced chemistry</li>
+          <li>Noticeably slower water flow from return jets</li>
+          <li>Dirty or discolored water returning to the pool through jets</li>
+          <li>Filter cycles are shorter — the pressure climbs back up quickly after cleaning</li>
+          <li>Visible debris or algae passing through the filter into the pool</li>
+          <li>Unusual noises coming from the pump as it strains against a clogged filter</li>
+          <li>DE powder or sand blowing back into the pool through return lines</li>
+        </ul>
+        <p>If you notice any of these signs, contact Royal Blue Pool Service at <a href={`tel:${phoneClean}`}>{phone}</a> for a filter inspection before the problem affects your pump or water quality.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Type Comparison -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>Pool Filter Types Compared</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="comparison-grid">
+        <div class="comparison-card">
+          <h3>Cartridge Filters</h3>
+          <ul class="comparison-list">
+            <li>Filter particles down to 10-15 microns</li>
+            <li>No backwashing required — saves water</li>
+            <li>Easy to remove and hose clean</li>
+            <li>Lower operating pressure reduces energy costs</li>
+            <li>Cartridge elements last 1-3 years with proper care</li>
+            <li>Best for: most residential pools in Midlothian</li>
+          </ul>
+        </div>
+        <div class="comparison-card">
+          <h3>DE (Diatomaceous Earth) Filters</h3>
+          <ul class="comparison-list">
+            <li>Filter particles down to 3-5 microns — finest filtration available</li>
+            <li>Produces the clearest, most polished water</li>
+            <li>Requires backwashing and recharging with DE powder</li>
+            <li>DE grids last 5-7 years with regular maintenance</li>
+            <li>Higher initial cost, superior long-term filtration</li>
+            <li>Best for: pools with heavy use or allergy-sensitive swimmers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="section">
+    <div class="container">
+      <h2>Our Filter Cleaning Process</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="process-steps">
+        <div class="process-step">
+          <span class="process-step-number">1</span>
+          <h3>Inspect & Assess</h3>
+          <p>We start by recording the current filter pressure, checking for leaks around the housing, and examining the overall condition of your filtration system. This baseline helps us measure the effectiveness of the cleaning and identify any parts that may need replacement.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step-number">2</span>
+          <h3>Remove & Clean</h3>
+          <p>Filter elements are carefully removed, inspected for damage, and thoroughly cleaned. Cartridges are degreased and chemically soaked when needed. DE grids are backwashed, disassembled, and hosed clean. Sand filters are backwashed and rinsed until the water runs clear.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step-number">3</span>
+          <h3>Reassemble & Test</h3>
+          <p>We reinstall all filter components, replace o-rings and gaskets as needed, and lubricate seals. The system is restarted and we verify the pressure has dropped to the proper clean baseline, confirming restored flow and filtration capacity.</p>
+        </div>
+        <div class="process-step">
+          <span class="process-step-number">4</span>
+          <h3>Document & Schedule</h3>
+          <p>Every service includes documentation of pressure readings, filter condition, and any recommendations. We help you set the right cleaning schedule based on your pool usage, surrounding trees, and filter type so you stay ahead of problems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>Benefits of Regular Filter Maintenance</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <ul class="benefits-list">
+        <li><strong>Crystal-clear water:</strong> A clean filter traps fine particles, algae spores, and debris that make pool water cloudy or green.</li>
+        <li><strong>Lower energy bills:</strong> Unrestricted water flow means your pump runs more efficiently and uses less electricity each month.</li>
+        <li><strong>Extended equipment life:</strong> Proper filtration reduces strain on your pump motor, seals, and plumbing, preventing costly repairs.</li>
+        <li><strong>Better chemical efficiency:</strong> Clean water circulates chemicals more evenly, meaning you use fewer chemicals and maintain balance more easily.</li>
+        <li><strong>Healthier swimming:</strong> Effective filtration removes bacteria, pollen, and contaminants, creating a safer environment for your family.</li>
+        <li><strong>Fewer emergency calls:</strong> Routine filter maintenance catches small problems — cracked grids, worn gaskets, deteriorating media — before they become expensive failures.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <h2>Filter Cleaning FAQ</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <div class="faq-answer">{faq.answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Keep Your Pool Filter Running Clean</h2>
+      <p>Schedule a professional filter cleaning with Midlothian's trusted pool service. Licensed, insured, and backed by 20+ years of experience.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+        <a href={`tel:${phoneClean}`} class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

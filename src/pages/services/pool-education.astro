@@ -1,0 +1,265 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const phone = '(214) 243-7107';
+const phoneClean = phone.replace(/[^+\d]/g, '');
+
+const title = 'Free Pool Education | Midlothian, TX';
+const description = 'Free 30-minute pool education sessions for new pool owners in Midlothian, TX. Learn equipment operation, water chemistry, and maintenance from Royal Blue Pool Service.';
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Pool Education', href: '/services/pool-education' },
+];
+
+const faqs = [
+  {
+    question: 'Who is the free pool education session for?',
+    answer: 'Our free sessions are designed primarily for new pool owners in the Midlothian and Ellis County area, but any pool owner who wants to better understand their equipment and water chemistry is welcome. Whether you just moved into a home with a pool or recently had one built, we\'re happy to walk you through everything you need to know.'
+  },
+  {
+    question: 'How long does the education session last?',
+    answer: 'Each on-site session runs approximately 30 minutes. That gives us enough time to walk through your specific equipment, explain water chemistry basics, and answer all your questions without taking up your entire day.'
+  },
+  {
+    question: 'Is the pool education session really free?',
+    answer: 'Yes, 100% free with no strings attached. Owner Derrick Jackson believes that educated pool owners make better decisions about their pool care. There\'s no sales pitch and no obligation to sign up for any services. It\'s simply our way of helping the community.'
+  },
+  {
+    question: 'What should I prepare before the session?',
+    answer: 'Just make sure we have access to your pool equipment pad and the pool itself. If you have any owner\'s manuals for your pump, filter, or heater, have those handy. It also helps to write down any specific questions you\'ve been wondering about so we can address them during the visit.'
+  }
+];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Royal Blue Pool Service",
+  "description": "Free 30-minute pool education sessions for new pool owners in Midlothian, TX. Learn pool equipment operation, water chemistry basics, and seasonal maintenance tips.",
+  "url": "https://royalbluepools.org/services/pool-education",
+  "telephone": "(214) 243-7107",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4040 Zachs Ct",
+    "addressLocality": "Midlothian",
+    "addressRegion": "TX",
+    "postalCode": "76065",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "Midlothian", "DeSoto", "Cedar Hill", "Duncanville", "Oak Cliff",
+    "Grand Prairie", "Lancaster", "Red Oak", "Ovilla", "Pecan Hill",
+    "Oak Leaf", "Waxahachie", "Ferris", "Ennis"
+  ].map(area => ({
+    "@type": "City",
+    "name": area + ", TX"
+  })),
+  "founder": { "@type": "Person", "name": "Derrick Jackson" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Pool Education Services",
+    "itemListElement": [{
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Free Pool Education Session",
+        "description": "Complimentary 30-minute on-site pool education session for new pool owners covering equipment operation, water chemistry, and maintenance basics."
+      },
+      "price": "0",
+      "priceCurrency": "USD"
+    }]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://royalbluepools.org/services/pool-education"
+  jsonLd={[localBusinessSchema, faqSchema]}
+>
+
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Service Hero -->
+  <section class="section">
+    <div class="container">
+      <div class="service-hero">
+        <div class="service-hero-content">
+          <div class="section-label">Free Service</div>
+          <h1>Free Pool Education in Midlothian, TX</h1>
+          <p>Owning a pool for the first time can feel overwhelming. That's why Royal Blue Pool Service offers complimentary 30-minute on-site education sessions for new pool owners throughout Midlothian and Ellis County. Owner Derrick Jackson personally walks you through your pool equipment, water chemistry fundamentals, and the maintenance basics that keep your pool safe, clean, and running efficiently all year long.</p>
+          <p>No sales pitch. No obligation. Just honest guidance from a licensed pool professional (TICL #1056) with over 20 years of experience.</p>
+          <div style="margin-top: var(--space-lg);">
+            <a href="/contact" class="btn btn-primary">Schedule Your Free Session</a>
+          </div>
+        </div>
+        <div class="service-hero-image">
+          <img src="/images/gallery/new-construction-plaster.jpg" alt="Pool education session for new pool owners in Midlothian, TX" width="600" height="450" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What You'll Learn -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">Session Topics</div>
+      <h2>What You'll Learn</h2>
+      <p class="section-subtitle">Every pool is different. During your free session, we cover the topics that matter most for your specific setup and equipment.</p>
+      <div style="margin-top: var(--space-xl);"></div>
+      <div class="service-features">
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+          <div>
+            <h3>Pool Equipment Operation</h3>
+            <p>Learn how your pump, filter, heater, and automation system work together. We'll show you how to operate each piece of equipment and what the settings mean.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/><path d="M3 10h18"/><path d="m16 20 2 2 4-4"/></svg>
+          </div>
+          <div>
+            <h3>Water Chemistry Basics</h3>
+            <p>Understand pH, chlorine levels, alkalinity, and calcium hardness. We explain what each reading means and how to keep your water balanced and safe for swimming.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8l4 4"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <div>
+            <h3>Seasonal Maintenance Tips</h3>
+            <p>Texas heat demands a different approach in summer versus winter. Learn seasonal adjustments for run times, chemical dosing, and when to schedule professional service.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          </div>
+          <div>
+            <h3>Filter Care & Maintenance</h3>
+            <p>Your filter is the backbone of clean water. We show you how to check pressure gauges, when to backwash or clean cartridges, and signs your filter needs attention.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3>Common Problem Prevention</h3>
+            <p>Algae blooms, cloudy water, and equipment failures are preventable. Learn the early warning signs and simple steps that save you time, money, and frustration.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <h3>When to Call a Professional</h3>
+            <p>Some pool issues are DIY-friendly, and others require a licensed technician. We'll help you understand the difference so you never make a costly mistake.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Simple Process</div>
+      <h2>How Our Free Education Session Works</h2>
+      <p class="section-subtitle">Getting started takes just a quick phone call. Here's what to expect from your complimentary pool education session.</p>
+      <div style="margin-top: var(--space-xl);"></div>
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>Schedule Your Session</h3>
+          <p>Call us at {phone} or use our contact form to set up a time that works for you. We'll come to your home at your convenience.</p>
+        </div>
+        <div class="process-step">
+          <h3>On-Site Walkthrough</h3>
+          <p>Derrick arrives and walks through your entire pool system with you, from the equipment pad to the water's edge, explaining everything along the way.</p>
+        </div>
+        <div class="process-step">
+          <h3>Hands-On Training</h3>
+          <p>You'll operate your own equipment under guidance. We cover pump settings, filter maintenance, chemical testing, and any features specific to your pool.</p>
+        </div>
+        <div class="process-step">
+          <h3>Take-Home Guide</h3>
+          <p>You'll receive a reference guide with maintenance schedules, ideal chemical ranges, and tips tailored to your pool so you can feel confident going forward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">Why It Matters</div>
+      <h2>Benefits of Pool Education</h2>
+      <p class="section-subtitle">Understanding your pool isn't just about convenience. It protects your investment and keeps your family safe.</p>
+      <div style="margin-top: var(--space-xl);"></div>
+      <ul class="benefits-list">
+        <li><strong>Save money on chemicals</strong> by learning proper dosing instead of guessing and over-treating your water</li>
+        <li><strong>Extend equipment lifespan</strong> with correct operating procedures that prevent premature wear and costly replacements</li>
+        <li><strong>Prevent algae and cloudy water</strong> by understanding the chemistry behind clean, balanced pool water</li>
+        <li><strong>Avoid emergency repairs</strong> by catching early warning signs before small problems become expensive breakdowns</li>
+        <li><strong>Keep your family safe</strong> with proper sanitation knowledge that ensures healthy, swimmable water at all times</li>
+        <li><strong>Gain confidence as a pool owner</strong> so you can enjoy your pool without stress, worry, or constant second-guessing</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Common Questions</div>
+      <h2>Pool Education FAQ</h2>
+      <p class="section-subtitle">Have questions about our free education sessions? Here are the answers to what new pool owners ask most.</p>
+      <div style="margin-top: var(--space-xl);"></div>
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <div class="faq-answer">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Schedule Your Free Pool Education Session</h2>
+      <p>No cost, no obligation, no sales pitch. Just 30 minutes of honest pool guidance from a licensed professional who wants to help you succeed as a pool owner.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary">Book Your Free Session</a>
+        <a href={`tel:${phoneClean}`} class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

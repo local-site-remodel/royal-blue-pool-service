@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const phone = '(214) 243-7107';
+const phoneClean = phone.replace(/[^+\d]/g, '');
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Weekly Pool Maintenance', href: '/services/weekly-pool-maintenance' },
+];
+
+const faqs = [
+  {
+    question: "How much does weekly pool maintenance cost in Midlothian, TX?",
+    answer: "Weekly pool maintenance pricing depends on your pool size, equipment type, and any special needs like salt systems or spa combos. Contact us for a free, no-obligation estimate tailored to your pool. Most of our weekly maintenance customers find professional service more affordable than buying and storing chemicals themselves."
+  },
+  {
+    question: "What does your weekly pool maintenance service include?",
+    answer: "Every weekly visit includes water chemistry testing and chemical balancing, surface skimming, brushing walls and tile lines, vacuuming the pool floor, emptying skimmer and pump baskets, inspecting equipment for proper operation, checking water level, and a detailed service report so you always know the condition of your pool."
+  },
+  {
+    question: "Do I still need weekly service during winter months in Texas?",
+    answer: "Yes, even during cooler months your pool requires regular attention. Texas winters are mild enough that algae can still grow, and freezing temperatures can damage equipment if water chemistry is off. We adjust our service schedule and chemical treatments seasonally so your pool stays protected year-round and is ready to swim when warm weather returns."
+  },
+  {
+    question: "Can I switch from another pool service company to Royal Blue?",
+    answer: "Absolutely. Many of our customers switched from other providers and noticed an immediate improvement. We start every new account with a thorough pool assessment, correct any existing water chemistry issues, and establish a consistent weekly service schedule. There are no long-term contracts — we earn your business every week."
+  },
+];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Royal Blue Pool Service",
+  "description": "Professional weekly pool maintenance in Midlothian, TX. Licensed (TICL #1056), insured, and family-owned with over 20 years of experience.",
+  "url": "https://royalbluepools.org/services/weekly-pool-maintenance",
+  "telephone": "(214) 243-7107",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4040 Zachs Ct",
+    "addressLocality": "Midlothian",
+    "addressRegion": "TX",
+    "postalCode": "76065",
+    "addressCountry": "US"
+  },
+  "founder": { "@type": "Person", "name": "Derrick Jackson" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "7", "bestRating": "5" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Weekly Pool Maintenance",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Weekly Pool Maintenance", "description": "Professional weekly pool cleaning, chemical balancing, and equipment inspection in Midlothian, TX." } }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+};
+
+const title = "Weekly Pool Maintenance Midlothian TX | Royal Blue";
+const description = "Professional weekly pool maintenance in Midlothian, TX. Chemical balancing, skimming, vacuuming & equipment checks. Licensed TICL #1056. Call (214) 243-7107.";
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://royalbluepools.org/services/weekly-pool-maintenance"
+  jsonLd={[localBusinessSchema, faqSchema]}
+>
+
+  <!-- Breadcrumbs -->
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Service Hero -->
+  <section class="section">
+    <div class="container">
+      <div class="service-hero">
+        <div class="service-hero-content">
+          <h1>Weekly Pool Maintenance in Midlothian, TX</h1>
+          <p>Keeping a pool crystal clear in the Texas heat takes more than tossing in chlorine once a week. At Royal Blue Pool Service, owner Derrick Jackson and his team deliver consistent, thorough weekly maintenance that protects your investment and keeps your water safe for your family. Licensed (TICL #1056), insured, and backed by over 20 years of experience, we take the guesswork out of pool care so you can simply enjoy your backyard.</p>
+          <div class="hero-actions">
+            <a href="/contact" class="btn btn-primary">Get a Free Estimate</a>
+            <a href={`tel:${phoneClean}`} class="btn btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call {phone}
+            </a>
+          </div>
+        </div>
+        <div class="service-hero-image">
+          <img src="/images/gallery/tahoe-blue-stonescapes-after.jpg" alt="Crystal clear pool maintained by Royal Blue Pool Service in Midlothian, TX featuring Tahoe Blue Stonescapes finish" width="600" height="450" loading="eager" decoding="async" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Features -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">What's Included</div>
+      <h2>Our Weekly Maintenance Services</h2>
+      <p class="section-subtitle">Every visit follows a comprehensive checklist so nothing gets missed. Here's what we handle each week to keep your pool in peak condition.</p>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="service-features">
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <h3>Chemical Testing & Balancing</h3>
+            <p>We test chlorine, pH, alkalinity, stabilizer, and calcium hardness levels every visit. Precise chemical adjustments prevent damage to your plaster, equipment, and skin while keeping the water sanitized and swim-ready.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h6"/><path d="M22 12h-6"/><path d="M12 2v6"/><path d="M12 22v-6"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+          <div>
+            <h3>Skimming & Surface Cleaning</h3>
+            <p>Leaves, pollen, insects, and debris are removed from the water surface before they sink and stain your plaster. We also empty skimmer and pump baskets to maintain proper water flow through your filtration system.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+          </div>
+          <div>
+            <h3>Vacuuming & Brushing</h3>
+            <p>We brush pool walls, steps, and the waterline tile to prevent algae from taking hold. The pool floor is vacuumed to remove settled debris, keeping your water clarity at its best and your surfaces protected.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div>
+            <h3>Equipment Inspection</h3>
+            <p>Your pump, filter, heater, and automatic cleaner are checked for proper operation during every visit. Catching a small issue early — like a worn seal or unusual noise — prevents costly breakdowns later. As a Certified Pentair Warranty Service Center, we know your equipment inside and out.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          </div>
+          <div>
+            <h3>Filter Maintenance</h3>
+            <p>Clogged or dirty filters reduce water circulation and make your pump work harder, increasing energy costs. We monitor filter pressure, clean cartridges and grids on schedule, and recommend replacement when needed to keep your system running efficiently.</p>
+          </div>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M17 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S17.29 6.75 17 5.3c-.29 1.45-1.14 2.84-2.29 3.76S13 11.1 13 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>
+          </div>
+          <div>
+            <h3>Water Level Management</h3>
+            <p>Texas heat causes significant evaporation, especially during summer months. We monitor your water level each visit and advise you when it needs topping off, preventing pump damage from running dry and keeping your skimmer operating at peak efficiency.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warning Signs -->
+  <section class="section">
+    <div class="container">
+      <div class="warning-box">
+        <h3>Signs Your Pool Needs Professional Maintenance</h3>
+        <ul class="warning-list">
+          <li>Cloudy or hazy water that won't clear up</li>
+          <li>Green or yellowish tint on water surface</li>
+          <li>Burning eyes or skin irritation after swimming</li>
+          <li>Strong chlorine smell around the pool</li>
+          <li>Algae growth on walls, steps, or corners</li>
+          <li>Visible debris settling on the pool floor</li>
+          <li>Pool pump making unusual noises or cycling on and off</li>
+          <li>Water level dropping faster than normal evaporation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2>Our Weekly Service Process</h2>
+      <p class="section-subtitle">Every visit follows the same proven routine so your pool receives thorough, consistent care week after week.</p>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>Inspect & Test</h3>
+          <p>We start by visually inspecting the pool and all equipment. Water chemistry is tested using professional-grade reagents to get accurate readings on chlorine, pH, alkalinity, and stabilizer levels.</p>
+        </div>
+        <div class="process-step">
+          <h3>Clean & Skim</h3>
+          <p>All floating debris is removed from the water surface. Skimmer baskets and pump strainer baskets are emptied. The waterline tile is wiped down to prevent calcium and oil buildup.</p>
+        </div>
+        <div class="process-step">
+          <h3>Brush & Vacuum</h3>
+          <p>Pool walls, steps, benches, and the floor are brushed to prevent algae attachment. The pool floor is vacuumed to remove settled dirt and debris that the filter can't reach on its own.</p>
+        </div>
+        <div class="process-step">
+          <h3>Balance & Report</h3>
+          <p>Chemicals are added as needed to bring your water into ideal range. We check your equipment one final time and leave a service report so you always know exactly what was done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Why It Matters</div>
+      <h2>Benefits of Professional Weekly Pool Maintenance</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <ul class="benefits-list">
+        <li>Swim-ready water every day of the week with balanced chemistry and clear visibility</li>
+        <li>Extended equipment life from regular inspection and early problem detection</li>
+        <li>Lower repair costs because small issues are caught before they become major failures</li>
+        <li>Reduced energy bills from properly maintained pumps, filters, and circulation systems</li>
+        <li>Protected pool surfaces — balanced water chemistry prevents plaster etching and staining</li>
+        <li>More free time for you instead of spending weekends testing water and hauling chemicals</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-label">What Our Customers Say</div>
+      <h2>Trusted by Pool Owners in Midlothian</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="testimonials-grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="testimonial-card">
+          <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-quote">Derrick has been servicing my pool for the last 2 years and it always looks amazing! I can count on him like clockwork!</p>
+          <div class="testimonial-author">Robert Lewis</div>
+          <div class="testimonial-source">via Alignable</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-quote">Excellent customer experience with high quality at very reasonable rates. Highly recommend Royal Blue Pool Service.</p>
+          <div class="testimonial-author">Gordon D.</div>
+          <div class="testimonial-source">via Yelp</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Common Questions</div>
+      <h2>Weekly Pool Maintenance FAQ</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <div class="faq-answer">{faq.answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready for Hassle-Free Pool Care?</h2>
+      <p>Stop spending your weekends fighting cloudy water. Let Midlothian's trusted pool service team handle it so you can enjoy your pool instead of maintaining it.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+        <a href={`tel:${phoneClean}`} class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

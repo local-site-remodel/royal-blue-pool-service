@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const phone = '(214) 243-7107';
+const phoneClean = phone.replace(/[^+\d]/g, '');
+
+const testimonials = [
+  {
+    quote: "The appointment was quickly acknowledged and scheduled. Derrick showed up and was very knowledgeable about the pool and equipment. He solved the problem and was very reasonable. I used him 5 years ago and he fixed a problem within 5 minutes and did not charge for the service. Very professional and courteous.",
+    author: "Mary J.",
+    source: "Yelp",
+    rating: 5,
+    featured: true
+  },
+  {
+    quote: "We had another excellent customer experience using Royal Blue Pool Service. I would highly recommend using them for any of your pool requirements. Derrick and Nicole provide high quality at very reasonable rates.",
+    author: "Gordon D.",
+    source: "Yelp",
+    rating: 5,
+    featured: false
+  },
+  {
+    quote: "Derrick has been servicing my pool for the last 2 years and it always looks amazing! I can count on him like clockwork!",
+    author: "Robert Lewis",
+    source: "Alignable",
+    rating: 5,
+    featured: false
+  },
+  {
+    quote: "Came for warranty question from manufacturer. Pump began working again. Derrick walked us through our equipment replacement options and made sure we understood everything before making any decisions.",
+    author: "Taylor R.",
+    source: "Yelp",
+    rating: 5,
+    featured: false
+  },
+  {
+    quote: "We did a basic replaster using Stonescapes and I highly recommend Royal Blue Pool Service! After buying our first home that had one issue after another, we accumulated black algae in the pool. Royal Blue did an excellent job — the pool looks brand new.",
+    author: "Lindsey B.",
+    source: "Yelp",
+    rating: 5,
+    featured: false
+  },
+  {
+    quote: "Royal Blue Pool Service is reliable, efficient, and reasonably priced. Derrick is honest about what your pool actually needs and doesn't try to upsell unnecessary services. That kind of integrity is hard to find.",
+    author: "Verified Customer",
+    source: "Google",
+    rating: 5,
+    featured: false
+  },
+  {
+    quote: "Derrick and Nicole run a fantastic family business. They treat every customer's pool like it's their own. Prompt service, fair pricing, and they always explain what they're doing and why.",
+    author: "Clay Hinds",
+    source: "Alignable",
+    rating: 5,
+    featured: false
+  },
+];
+
+const title = 'Customer Reviews | Royal Blue Pool Service';
+const description = 'Read real customer reviews for Royal Blue Pool Service in Midlothian, TX. Rated 4.7 stars on Google with 5-star reviews on Yelp and Alignable.';
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Royal Blue Pool Service",
+  "url": "https://royalbluepools.org",
+  "telephone": "(214) 243-7107",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4040 Zachs Ct",
+    "addressLocality": "Midlothian",
+    "addressRegion": "TX",
+    "postalCode": "76065",
+    "addressCountry": "US"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "7",
+    "bestRating": "5"
+  },
+  "review": testimonials.map(t => ({
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": t.rating,
+      "bestRating": 5
+    },
+    "author": {
+      "@type": "Person",
+      "name": t.author
+    },
+    "reviewBody": t.quote
+  }))
+};
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://royalbluepools.org/reviews"
+  jsonLd={[localBusinessSchema]}
+>
+
+  <Breadcrumbs items={[
+    { label: 'Home', href: '/' },
+    { label: 'Reviews', href: '/reviews' }
+  ]} />
+
+  <!-- Reviews Header -->
+  <section class="section">
+    <div class="container">
+      <h1>Customer Reviews</h1>
+      <div class="grid-2col" style="align-items: center; margin-top: var(--space-lg);">
+        <div>
+          <div class="star-rating" style="font-size: 1.5rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p style="margin-top: var(--space-sm);">
+            <strong>4.7-star rating</strong> on Google with <strong>7 reviews</strong>. Additional 5-star reviews on Yelp, Alignable, and 42 Nextdoor recommendations.
+          </p>
+          <p style="margin-top: var(--space-md); color: var(--color-text-light);">Royal Blue Pool Service has earned the trust of pool owners across Midlothian and Ellis County through honest service, fair pricing, and years of reliable pool care.</p>
+        </div>
+        <div style="border-radius: var(--radius-lg); overflow: hidden;">
+          <img src="/images/gallery/remodel-after.jpg" alt="Completed pool remodel by Royal Blue Pool Service" width="600" height="450" loading="eager" decoding="async" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Grid -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="testimonials-grid">
+        {testimonials.map(t => (
+          <div class={`testimonial-card ${t.featured ? 'featured' : ''}`}>
+            <div class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-quote">{t.quote}</p>
+            <div class="testimonial-author">{t.author}</div>
+            <div class="testimonial-source">via {t.source}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Leave a Review -->
+  <section class="section review-cta">
+    <div class="container" style="text-align: center;">
+      <h2>Share Your Experience</h2>
+      <p>Had a great experience with Royal Blue Pool Service? We'd love to hear about it. Your feedback helps other pool owners in Midlothian find reliable service.</p>
+      <div style="margin-top: var(--space-md);">
+        <a href="https://g.page/r/royalbluepoolservice/review" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Leave a Google Review</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready for a Crystal-Clear Pool?</h2>
+      <p>Get a free estimate from Midlothian's trusted pool service. Over 20 years of experience, licensed, insured, and ready to help.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+        <a href={`tel:${phoneClean}`} class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

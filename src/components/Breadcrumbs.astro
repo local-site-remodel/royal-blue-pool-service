@@ -1,0 +1,39 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+interface Props {
+  items: BreadcrumbItem[];
+}
+const { items } = Astro.props;
+const siteUrl = 'https://royalbluepools.org';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": item.label,
+    "item": `${siteUrl}${item.href}`
+  }))
+};
+---
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <ol class="breadcrumbs-list">
+      {items.map((item, i) => (
+        <li>
+          {i > 0 && <span class="breadcrumbs-separator">/</span>}
+          {i < items.length - 1 ? (
+            <a href={item.href}>{item.label}</a>
+          ) : (
+            <span class="breadcrumbs-current">{item.label}</span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

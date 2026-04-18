@@ -1,0 +1,286 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const phone = '(214) 243-7107';
+const phoneClean = phone.replace(/[^+\d]/g, '');
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Green Pool Recovery', href: '/services/green-pool-recovery' },
+];
+
+const faqs = [
+  {
+    question: "How long does green pool recovery take?",
+    answer: "Most green pools are restored to crystal-clear condition within 3 to 5 days, depending on the severity of the algae bloom. Heavily neglected pools with black algae may take up to 7 days. We monitor progress daily and adjust treatment as needed."
+  },
+  {
+    question: "Can I swim in my pool during treatment?",
+    answer: "No. During the shock treatment and recovery process, chlorine levels are elevated well beyond safe swimming ranges. We'll let you know exactly when it's safe to swim again — typically once chemical levels have returned to normal and the water tests clear."
+  },
+  {
+    question: "How can I prevent my pool from turning green again?",
+    answer: "Consistent weekly maintenance is the best prevention. This includes proper chemical balancing, regular brushing, adequate filtration run times, and maintaining correct chlorine levels. Our weekly maintenance plans are designed to prevent algae before it starts."
+  },
+  {
+    question: "Why did my pool turn green even though I add chlorine?",
+    answer: "A green pool despite adding chlorine usually means your stabilizer (cyanuric acid) levels are too high, your filter isn't running long enough, or your pH is out of range — all of which reduce chlorine's effectiveness. A professional water test can identify the root cause quickly."
+  },
+];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Royal Blue Pool Service",
+  "description": "Professional green pool recovery and algae removal in Midlothian, TX. Licensed (TICL #1056), insured pool service with over 20 years of experience restoring algae-infested pools to crystal-clear condition.",
+  "url": "https://royalbluepools.org",
+  "telephone": "(214) 243-7107",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4040 Zachs Ct",
+    "addressLocality": "Midlothian",
+    "addressRegion": "TX",
+    "postalCode": "76065",
+    "addressCountry": "US"
+  },
+  "founder": { "@type": "Person", "name": "Derrick Jackson" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Green Pool Recovery Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Green Pool Recovery", "description": "Professional algae removal and pool restoration service" } }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+};
+
+const title = "Green Pool Recovery Midlothian TX | Royal Blue";
+const description = "Professional green pool recovery in Midlothian, TX. We restore algae-infested pools to crystal clear with shock treatment, filtration, and chemical balancing. Free estimates.";
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalUrl="https://royalbluepools.org/services/green-pool-recovery"
+  jsonLd={[localBusinessSchema, faqSchema]}
+>
+
+  <!-- Breadcrumbs -->
+  <Breadcrumbs items={breadcrumbs} />
+
+  <!-- Service Hero -->
+  <section class="section">
+    <div class="container">
+      <div class="service-hero">
+        <div class="service-hero-content">
+          <h1>Green Pool Recovery in Midlothian, TX</h1>
+          <p>Walked out to find your pool looking more like a swamp than a swimming pool? You're not alone. Texas heat, storms, and equipment issues can turn a clean pool green seemingly overnight. Royal Blue Pool Service specializes in restoring algae-infested pools to crystal-clear condition — safely, efficiently, and with lasting results.</p>
+          <p>With over 20 years of experience and a Texas license (TICL #1056), owner Derrick Jackson has recovered hundreds of green pools across Midlothian and Ellis County. Whether it's a mild algae bloom or a pool that hasn't been serviced in months, we have the expertise and equipment to bring it back.</p>
+          <div class="hero-actions">
+            <a href="/contact" class="btn btn-primary">Get a Free Estimate</a>
+            <a href={`tel:${phoneClean}`} class="btn btn-phone">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              {phone}
+            </a>
+          </div>
+        </div>
+        <div class="service-hero-image">
+          <img src="/images/gallery/black-algae-before-01.jpg" alt="Green algae-infested pool before Royal Blue Pool Service recovery treatment in Midlothian TX" width="600" height="450" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Features -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>Our Green Pool Recovery Services</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="service-features">
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+          </div>
+          <h3>Algae Assessment & Testing</h3>
+          <p>We start with a comprehensive water test and visual inspection to identify the type and severity of algae, plus any underlying equipment or chemical issues causing the bloom.</p>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 14.69c1.32 0 2.4-1.1 2.4-2.43 0-.7-.34-1.36-1.02-1.92-.68-.56-1.22-1.29-1.38-2.04-.16.75-.7 1.48-1.38 2.04-.68.56-1.02 1.22-1.02 1.92 0 1.33 1.08 2.43 2.4 2.43z"/><path d="M17 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S17.29 6.75 17 5.3c-.29 1.45-1.14 2.84-2.29 3.76S13 11.1 13 12.25c0 2.22 1.8 4.05 4 4.05z"/></svg>
+          </div>
+          <h3>Professional Shock Treatment</h3>
+          <p>We apply precisely calibrated shock treatment based on your pool's volume and algae severity — far more effective than the guesswork of store-bought products.</p>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          </div>
+          <h3>Multi-Stage Filtration</h3>
+          <p>Extended filtration cycles running 24/7 combined with filter cleaning intervals to remove dead algae and restore water clarity from the inside out.</p>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Surface Brushing & Cleaning</h3>
+          <p>Thorough manual brushing of walls, floors, steps, and crevices to break algae's grip on pool surfaces — a critical step most DIY attempts skip.</p>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Chemical Rebalancing</h3>
+          <p>Once the algae is eliminated, we carefully rebalance pH, alkalinity, chlorine, and stabilizer levels to create an environment where algae can't return.</p>
+        </div>
+        <div class="service-feature-card">
+          <div class="service-feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+          </div>
+          <h3>Prevention Planning</h3>
+          <p>We provide a customized maintenance plan and recommendations to prevent future algae problems, including filtration schedules and chemical maintenance tips.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Warning Signs -->
+  <section class="section">
+    <div class="container">
+      <div class="warning-box">
+        <h3>Signs Your Pool Has an Algae Problem</h3>
+        <ul class="warning-list">
+          <li>Water has turned green, yellow, or dark cloudy</li>
+          <li>Pool walls and floor feel slimy or slippery to the touch</li>
+          <li>Green or black stains forming on pool surfaces</li>
+          <li>Strong chlorine smell — paradoxically indicates chlorine is being consumed fighting contaminants</li>
+          <li>Visible algae blooms floating on the surface or clinging to walls</li>
+          <li>Water clarity has deteriorated and you can't see the pool bottom</li>
+          <li>Filter pressure is higher than normal from working overtime</li>
+          <li>Pool hasn't been serviced or circulated in several weeks</li>
+        </ul>
+        <p style="margin-top: var(--space-md);">If you notice any of these signs, don't wait — algae spreads rapidly in Texas heat. <a href={`tel:${phoneClean}`}>Call us at {phone}</a> for a same-day assessment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>Our Green Pool Recovery Process</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-step-number">1</div>
+          <h3>Assess & Test</h3>
+          <p>We perform a full water chemistry analysis and inspect your equipment to identify what caused the algae bloom. Understanding the root cause is essential to preventing it from happening again.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-number">2</div>
+          <h3>Shock & Treat</h3>
+          <p>Based on the algae type and pool volume, we administer a professional-grade shock treatment along with targeted algaecides. This kills active algae and begins breaking down organic matter.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-number">3</div>
+          <h3>Filter & Clean</h3>
+          <p>We run your filtration system continuously, cleaning the filter multiple times as it collects dead algae. Walls, floors, and steps are thoroughly brushed to remove algae from every surface.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step-number">4</div>
+          <h3>Balance & Protect</h3>
+          <p>Once the water clears, we rebalance all chemical levels for safe swimming and apply preventive treatments. We'll also recommend a maintenance schedule to keep your pool algae-free year-round.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison: Types of Pool Algae -->
+  <section class="section">
+    <div class="container">
+      <h2>Types of Pool Algae</h2>
+      <p class="section-subtitle">Not all algae is created equal. Understanding the type of algae in your pool determines the treatment approach and timeline for recovery.</p>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="comparison-grid">
+        <div class="comparison-card">
+          <h3>Green Algae</h3>
+          <p>The most common type of pool algae in Midlothian. Green algae grows quickly in warm water with inadequate chlorine levels, turning your pool cloudy green within days.</p>
+          <ul class="comparison-list">
+            <li>Floats freely in the water and clings to walls</li>
+            <li>Responds well to shock treatment and brushing</li>
+            <li>Typically cleared within 3-5 days</li>
+            <li>Often caused by low chlorine or poor circulation</li>
+            <li>Most common after storms or equipment failures</li>
+          </ul>
+        </div>
+        <div class="comparison-card">
+          <h3>Black Algae</h3>
+          <p>The most stubborn and difficult algae to eliminate. Black algae has deep roots that penetrate plaster and grout, making it resistant to standard chemical treatments.</p>
+          <ul class="comparison-list">
+            <li>Appears as dark spots embedded in pool surfaces</li>
+            <li>Requires aggressive brushing with specialized tools</li>
+            <li>May take 5-7 days or longer to fully eliminate</li>
+            <li>Protective outer layer resists normal chlorine levels</li>
+            <li>Often reappears if roots are not completely removed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section-alt">
+    <div class="container">
+      <h2>Why Choose Professional Green Pool Recovery</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <ul class="benefits-list">
+        <li><strong>Faster results</strong> — Professional-grade chemicals and equipment restore your pool in days, not weeks of trial and error.</li>
+        <li><strong>Correct diagnosis</strong> — We identify the root cause (equipment failure, chemical imbalance, circulation issues) so the problem doesn't return.</li>
+        <li><strong>Safe chemical handling</strong> — Shock treatment involves handling hazardous chemicals at high concentrations. We do it safely and legally.</li>
+        <li><strong>Equipment protection</strong> — Improper DIY treatment can damage pump seals, filter cartridges, and plaster surfaces. We protect your investment.</li>
+        <li><strong>Cost-effective</strong> — DIY attempts often require multiple rounds of expensive chemicals. Professional recovery gets it right the first time.</li>
+        <li><strong>Prevention plan included</strong> — Every recovery includes a customized plan to keep your pool clear going forward.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <h2>Green Pool Recovery FAQ</h2>
+      <div style="margin-top: var(--space-lg);"></div>
+      <div class="faq-list">
+        {faqs.map(faq => (
+          <details class="faq-item">
+            <summary>{faq.question}</summary>
+            <div class="faq-answer">{faq.answer}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Got a Green Pool? We Can Fix It.</h2>
+      <p>Don't let algae take over your backyard. Contact Royal Blue Pool Service for a free estimate and get your pool back to crystal clear. Licensed, insured, and trusted across Midlothian and Ellis County.</p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn btn-primary">Get Your Free Estimate</a>
+        <a href={`tel:${phoneClean}`} class="btn btn-outline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call {phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

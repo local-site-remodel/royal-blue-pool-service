@@ -1,0 +1,170 @@
+backend:
+  name: github
+  repo: local-site-remodel/royal-blue-pool-service
+  branch: main
+  base_url: https://auth.localsiteremodel.com
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: siteConfig
+    label: "Site Settings"
+    files:
+      - name: main
+        label: "Business Info"
+        file: "src/content/siteConfig/main.yaml"
+        fields:
+          - { label: "Business Name", name: business_name, widget: string }
+          - { label: "Business Type", name: business_type, widget: string }
+          - { label: "Phone", name: phone, widget: string }
+          - { label: "Email", name: email, widget: string, required: false }
+          - { label: "Address", name: address, widget: string }
+          - { label: "City", name: city, widget: string }
+          - { label: "State", name: state, widget: string }
+          - { label: "ZIP", name: zip, widget: string }
+          - { label: "Website URL", name: website_url, widget: string }
+          - { label: "Owner Name", name: owner_name, widget: string, required: false }
+          - { label: "Years in Business", name: years_in_business, widget: number, required: false }
+          - { label: "Founding Year", name: founding_year, widget: number, required: false }
+          - { label: "BBB Rating", name: bbb_rating, widget: string, required: false }
+          - { label: "Insured", name: insured, widget: boolean, default: true }
+          - label: "Guarantees"
+            name: guarantees
+            widget: list
+            field: { label: "Guarantee", name: guarantee, widget: string }
+            required: false
+          - { label: "Financing Available", name: financing_available, widget: boolean, default: false }
+          - { label: "Financing Details", name: financing_details, widget: string, required: false }
+          - label: "Brand Colors"
+            name: brand_colors
+            widget: list
+            field: { label: "Color (hex)", name: color, widget: string }
+          - { label: "Logo", name: logo_url, widget: image, required: false }
+          - { label: "Display Font", name: fonts_display, widget: string, required: false }
+          - { label: "Body Font", name: fonts_body, widget: string, required: false }
+          - { label: "FormSubmit Email", name: formsubmit_email, widget: string }
+          - label: "Service Areas"
+            name: service_areas
+            widget: list
+            field: { label: "Area", name: area, widget: string }
+          - label: "Stats"
+            name: stats
+            widget: object
+            required: false
+            fields:
+              - { label: "Years Experience", name: years_experience, widget: string, required: false }
+              - { label: "BBB Rating", name: bbb_rating, widget: string, required: false }
+              - { label: "Satisfaction", name: satisfaction, widget: string, required: false }
+              - { label: "Complaints", name: complaints, widget: string, required: false }
+          - { label: "GA4 ID", name: ga4_id, widget: string, required: false }
+          - { label: "GTM ID", name: gtm_id, widget: string, required: false }
+          - { label: "Facebook Pixel", name: facebook_pixel, widget: string, required: false }
+          - label: "Custom Head Scripts"
+            name: custom_head_scripts
+            widget: text
+            required: false
+            hint: "Paste any tracking scripts (e.g. Google Analytics, Facebook Pixel, etc.) to inject into the <head> of every page."
+
+  - name: services
+    label: "Services"
+    label_singular: "Service"
+    folder: "src/content/services"
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Tagline", name: tagline, widget: text }
+      - { label: "Excerpt", name: excerpt, widget: text }
+      - { label: "Image", name: image, widget: image }
+      - { label: "Image Alt", name: image_alt, widget: string }
+      - { label: "Sort Order", name: sort_order, widget: number, default: 0 }
+      - { label: "Featured", name: featured, widget: boolean, default: false }
+      - label: "Features"
+        name: features
+        widget: list
+        fields:
+          - { label: "Title", name: title, widget: string }
+          - { label: "Description", name: description, widget: text }
+      - label: "Warning Signs"
+        name: warning_signs
+        widget: list
+        field: { label: "Sign", name: sign, widget: string }
+      - label: "Process Steps"
+        name: process_steps
+        widget: list
+        fields:
+          - { label: "Title", name: title, widget: string }
+          - { label: "Description", name: description, widget: text }
+      - label: "Comparison"
+        name: comparison
+        widget: object
+        required: false
+        fields:
+          - { label: "Title", name: title, widget: string }
+          - label: "Options"
+            name: options
+            widget: list
+            fields:
+              - { label: "Name", name: name, widget: string }
+              - label: "Points"
+                name: points
+                widget: list
+                field: { label: "Point", name: point, widget: string }
+      - label: "Benefits"
+        name: benefits
+        widget: list
+        field: { label: "Benefit", name: benefit, widget: string }
+      - label: "FAQs"
+        name: faqs
+        widget: list
+        fields:
+          - { label: "Question", name: question, widget: string }
+          - { label: "Answer", name: answer, widget: text }
+      - { label: "Body", name: body, widget: markdown }
+
+  - name: reviews
+    label: "Reviews"
+    label_singular: "Review"
+    folder: "src/content/reviews"
+    create: true
+    extension: yaml
+    slug: "{{slug}}"
+    fields:
+      - { label: "Author", name: author, widget: string }
+      - { label: "Rating", name: rating, widget: number, default: 5, min: 1, max: 5 }
+      - { label: "Quote", name: quote, widget: text }
+      - label: "Source"
+        name: source
+        widget: select
+        options: [google, yelp, facebook, nextdoor, homeguide, alignable, manual]
+        default: manual
+      - { label: "Source URL", name: source_url, widget: string, required: false }
+      - { label: "Date", name: date, widget: string, required: false }
+      - { label: "Featured", name: featured, widget: boolean, default: false }
+
+  - name: blog
+    label: "Blog"
+    label_singular: "Post"
+    folder: "src/content/blog"
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Excerpt", name: excerpt, widget: text }
+      - { label: "Author", name: author, widget: string, required: false }
+      - { label: "Date", name: date, widget: datetime }
+      - { label: "Updated", name: updated, widget: datetime, required: false }
+      - { label: "Image", name: image, widget: image, required: false }
+      - { label: "Image Alt", name: image_alt, widget: string, required: false }
+      - label: "Tags"
+        name: tags
+        widget: list
+        field: { label: "Tag", name: tag, widget: string }
+        required: false
+      - { label: "Draft", name: draft, widget: boolean, default: false }
+      - { label: "Body", name: body, widget: markdown }

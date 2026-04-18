@@ -1,0 +1,44 @@
+business_name: Royal Blue Pool Service
+business_type: Pool Service
+phone: "(214) 243-7107"
+address: 4040 Zachs Ct
+city: Midlothian
+state: TX
+zip: "76065"
+website_url: https://royalbluepools.org
+owner_name: Derrick Jackson
+years_in_business: 20
+founding_year: 2005
+licenses:
+  - "TICL #1056"
+insured: true
+guarantees:
+  - Free estimates on all repairs and remodels
+  - Free 30-minute pool education session for new owners
+  - Certified Pentair and Polaris warranty repairs
+financing_available: false
+brand_colors:
+  - "#0F172A"
+  - "#0369A1"
+  - "#d4a843"
+fonts_display: Poppins
+fonts_body: Open Sans
+formsubmit_email: derrick@royalbluepools.org
+service_areas:
+  - Midlothian
+  - DeSoto
+  - Cedar Hill
+  - Duncanville
+  - Oak Cliff
+  - Grand Prairie
+  - Lancaster
+  - Red Oak
+  - Ovilla
+  - Pecan Hill
+  - Oak Leaf
+  - Waxahachie
+  - Ferris
+  - Ennis
+stats:
+  years_experience: "20+"
+  satisfaction: "4.7"
