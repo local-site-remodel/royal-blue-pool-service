@@ -4,6 +4,8 @@ excerpt: "Understanding pool chemistry isn't complicated once you know the key p
 author: Derrick Jackson
 date: 2026-03-11T08:00:00
 tags: ["pool chemistry", "water balance", "chlorine", "pH", "pool maintenance"]
+image: "/images/blog/pool-water-chemistry-guide-for-texas-pool-owners.png"
+image_alt: "Pool water chemistry testing kit by a pool"
 draft: false
 ---
 

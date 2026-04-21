@@ -4,6 +4,8 @@ excerpt: "Your pool pump is making noise, running weakly, or not running at all.
 author: Derrick Jackson
 date: 2026-03-18T08:00:00
 tags: ["pool pump", "equipment repair", "Pentair", "pool equipment"]
+image: "/images/blog/pool-pump-repair-vs-replacement-what-to-know.png"
+image_alt: "Pool technician inspecting a pool pump"
 draft: false
 ---
 

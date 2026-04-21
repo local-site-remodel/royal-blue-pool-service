@@ -4,6 +4,8 @@ excerpt: "Walked out to find your pool green? Don't panic. Understanding why poo
 author: Derrick Jackson
 date: 2026-03-25T08:00:00
 tags: ["green pool", "algae", "pool chemistry", "pool recovery"]
+image: "/images/blog/green-pool-causes-and-how-to-fix-it.png"
+image_alt: "Green algae pool vs crystal clear pool comparison"
 draft: false
 ---
 

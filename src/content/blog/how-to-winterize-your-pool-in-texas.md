@@ -4,6 +4,8 @@ excerpt: "Texas winters are mild but unpredictable. Full winterization like nort
 author: Derrick Jackson
 date: 2026-02-18T08:00:00
 tags: ["pool winterization", "Texas pool", "cold weather", "pool maintenance", "winter pool care"]
+image: "/images/blog/how-to-winterize-your-pool-in-texas.png"
+image_alt: "Residential pool during Texas winter"
 draft: false
 ---
 

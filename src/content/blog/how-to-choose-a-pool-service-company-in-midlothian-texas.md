@@ -4,6 +4,8 @@ excerpt: "Not all pool service companies are equal. Here's what to look for — 
 author: Derrick Jackson
 date: 2026-01-28T08:00:00
 tags: ["pool service", "Midlothian", "hiring pool company", "pool maintenance", "licensed pool service"]
+image: "/images/blog/how-to-choose-a-pool-service-company-in-midlothian-texas.png"
+image_alt: "Pool service professional meeting with a homeowner"
 draft: false
 ---
 

@@ -82,9 +82,11 @@ const breadcrumbs = [
   <!-- FAQ -->
   <section class="section">
     <div class="container">
-      <div class="section-label">Common Questions</div>
-      <h1>Pool Service FAQ</h1>
-      <p class="section-subtitle">Have questions about pool maintenance, repairs, or our services? Browse our frequently asked questions below, or call us at <a href={`tel:${phoneClean}`}>{phone}</a> for a quick answer.</p>
+      <div class="text-center">
+        <div class="section-label">Common Questions</div>
+        <h1>Pool Service FAQ</h1>
+        <p class="section-subtitle">Have questions about pool maintenance, repairs, or our services? Browse our frequently asked questions below, or call us at <a href={`tel:${phoneClean}`}>{phone}</a> for a quick answer.</p>
+      </div>
       <div style="margin-top: var(--space-lg);"></div>
       <div class="faq-list">
         {faqs.map(faq => (

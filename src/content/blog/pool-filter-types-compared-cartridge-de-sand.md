@@ -4,6 +4,8 @@ excerpt: "Choosing between cartridge, diatomaceous earth (DE), and sand pool fil
 author: Derrick Jackson
 date: 2026-02-04T08:00:00
 tags: ["pool filter", "cartridge filter", "DE filter", "sand filter", "pool equipment"]
+image: "/images/blog/pool-filter-types-compared-cartridge-de-sand.png"
+image_alt: "Three pool filter types compared side by side"
 draft: false
 ---
 

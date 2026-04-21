@@ -4,6 +4,8 @@ excerpt: "Acid washing can restore stained or algae-covered plaster surfaces —
 author: Derrick Jackson
 date: 2026-02-11T08:00:00
 tags: ["acid wash", "pool plaster", "pool stains", "pool remodeling", "pool restoration"]
+image: "/images/blog/when-to-acid-wash-your-pool.png"
+image_alt: "Drained pool being prepared for acid washing"
 draft: false
 ---
 

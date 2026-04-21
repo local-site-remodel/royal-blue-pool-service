@@ -4,6 +4,8 @@ excerpt: "Choosing a pool finish is one of the most significant decisions in a p
 author: Derrick Jackson
 date: 2026-03-04T08:00:00
 tags: ["pool remodeling", "Stonescapes", "pool plaster", "pool finish", "Midlothian"]
+image: "/images/blog/stonescapes-vs-standard-plaster-which-is-right-for-your-pool.png"
+image_alt: "Stonescapes pebble finish vs standard white plaster pool comparison"
 draft: false
 ---
 

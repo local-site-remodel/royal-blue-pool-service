@@ -4,6 +4,8 @@ excerpt: "Texas heat and humidity create unique challenges for pool owners. Here
 author: Derrick Jackson
 date: 2026-04-01T08:00:00
 tags: ["pool maintenance", "Texas pools", "Midlothian", "weekly service"]
+image: "/images/blog/how-often-should-you-service-your-pool-in-texas.png"
+image_alt: "Clean residential pool in a Texas backyard"
 draft: false
 ---
 

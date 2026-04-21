@@ -4,6 +4,8 @@ excerpt: "Just bought a home with a pool in Midlothian or Ellis County? This com
 author: Derrick Jackson
 date: 2026-02-25T08:00:00
 tags: ["new pool owner", "pool basics", "Midlothian", "pool education", "first-time pool owner"]
+image: "/images/blog/new-pool-owner-guide-midlothian-texas.png"
+image_alt: "Family enjoying a backyard pool in Texas"
 draft: false
 ---
 
